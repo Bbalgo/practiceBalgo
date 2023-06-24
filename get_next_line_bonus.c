@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsudadec <dsudadec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 01:03:29 by dsudadec          #+#    #+#             */
-/*   Updated: 2023/06/25 00:21:11 by dsudadec         ###   ########.fr       */
+/*   Created: 2023/06/25 00:22:35 by dsudadec          #+#    #+#             */
+/*   Updated: 2023/06/25 00:39:26 by dsudadec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_buf(int fd, char *buf)
 {
@@ -64,7 +64,7 @@ char	*split_line(char *buf)
 	return (line);
 }
 
-char	*update_buf(char *buf)
+char *update_buf(char *buf)
 {
 	char	*new_buf;
 	int					i;
@@ -92,8 +92,8 @@ char	*update_buf(char *buf)
 
 char	*get_next_line(int fd)
 {
-	static char		*buf[50];
-	char		*line;
+	static char		*buf[4096];
+	char			*line;
 
 	if (BUFFER_SIZE < 1 || fd < 0 || fd > 4096)
 		return (NULL);
@@ -104,4 +104,3 @@ char	*get_next_line(int fd)
 	buf[fd] = update_buf(buf[fd]);
 	return (line);
 }
-
