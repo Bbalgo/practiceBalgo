@@ -6,7 +6,7 @@
 /*   By: dsudadec <dsudadec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 01:03:29 by dsudadec          #+#    #+#             */
-/*   Updated: 2023/06/24 01:36:21 by dsudadec         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:02:58 by dsudadec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*update_buf(char *buf)
 	int					j;
 
 	i = 0;
-	j = next_char(buf, '\n')
+	j = next_char(buf, '\n');
 	if (j < 1)
 	{
 		free(buf);
@@ -92,7 +92,7 @@ char	*update_buf(char *buf)
 
 char	*get_next_line(int fd)
 {
-	static char		*buf[4096];
+	static char		*buf[50];
 	char		*line;
 
 	if (BUFFER_SIZE < 1 || fd < 0 || fd > 4096)

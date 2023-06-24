@@ -6,7 +6,7 @@
 /*   By: dsudadec <dsudadec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 00:01:22 by dsudadec          #+#    #+#             */
-/*   Updated: 2023/06/24 00:08:41 by dsudadec         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:11:04 by dsudadec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-char	ft_strjoin(char *s1, char *s2)
+/*
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int			sizetotal;
-	char	*res
+	char	*res;
 	int			i;
 	int			j;
 
@@ -49,7 +49,35 @@ char	ft_strjoin(char *s1, char *s2)
 	res[sizetotal] = 0;
 	return (res);
 }
+*/
 
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*fs;
+	int				i;
+	int				j;
+
+	if (!s1)
+	{
+		s1 = (char *)malloc(sizeof(char));
+		*s1 = 0;
+	}
+	if (!s2)
+		return (s1);
+	fs = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!fs)
+		return (NULL);
+	j = 0;
+	i = 0;
+	while (s1[j])
+		fs[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		fs[i++] = s2[j++];
+	fs[i] = '\0';
+	free(s1);
+	return (fs);
+}
 int	next_char(char *str, char c)
 {
 	int		i;
