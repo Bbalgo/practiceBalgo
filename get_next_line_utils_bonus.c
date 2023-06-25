@@ -6,7 +6,7 @@
 /*   By: dsudadec <dsudadec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 00:43:22 by dsudadec          #+#    #+#             */
-/*   Updated: 2023/06/25 00:49:22 by dsudadec         ###   ########.fr       */
+/*   Updated: 2023/06/26 01:23:16 by dsudadec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = (char *)malloc(sizeof(char));
 		*s1 = 0;
 	}
-	if (!s1)
+	if (!s2)
 		return (s1);
 	fs = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!fs)
@@ -43,7 +43,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s1[j])
 		fs[i++] = s1[j++];
 	j = 0;
-	while (s1[j])
+	while (s2[j])
 		fs[i++] = s2[j++];
 	fs[i] = '\0';
 	free(s1);
